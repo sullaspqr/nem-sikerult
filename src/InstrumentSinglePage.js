@@ -40,6 +40,10 @@ export function InstrumentSinglePage() {
                                     src={instrument.imageURL ? instrument.imageURL : "https://via.placeholder.com/400x800"}
                                     /></NavLink>
                                 </div>
+                                <div><NavLink to="/"><i className="bi bi-backspace"></i></NavLink> &nbsp;&nbsp;&nbsp;
+                                    <NavLink key="mod" to={"/mod-hangszer/" + instrument.id}>
+                                    <i className="bi bi-pencil"></i>
+                                </NavLink></div>
                             </div>
                     </div>
                 )
