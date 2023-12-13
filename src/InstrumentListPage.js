@@ -22,20 +22,26 @@ export function InstrumentListPage() {
                     <div>
                         <h2>Hangszerek</h2>
                         {instruments.map((instrument) => (
-                            <NavLink key={instrument.id} to={"/hangszer/" + instrument.id}>
-                            <div className="card col-sm-3 d-inline-block m-1 p-2">
+                            
+                            <div key={instrument.id+3} className="card col-sm-3 d-inline-block m-1 p-2">
                                 <h6 className="text-muted">{instrument.brand}</h6>
                                 <h5 className="text-muted">{instrument.name}</h5>
                                 <div>{instrument.price}.- HUF</div>
                                 <div className="small">Készleten: {instrument.quantity} db</div>
+                                <NavLink key={instrument.id} to={"/hangszer/" + instrument.id}>
                                 <div className="card-body">
                                     <img className="img-fluid"
                                     style={{ maxHeight: 200 }}
                                     alt="hello world, ide kéne a képed!"
                                     src={instrument.imageURL ? instrument.imageURL : "https://via.placeholder.com/400x800"}
                                     />
-                                </div>
-                            </div></NavLink>
+                                </div></NavLink>
+                                <br/>
+                                <NavLink key={instrument.id+2} to={"/mod-hangszer/" + instrument.id}>
+                                    <i className="bi bi-pencil-square mx-1">Modosítás</i></NavLink>
+                                <NavLink key={instrument.id+1} to={"/del-hangszer/" + instrument.id} className={"text-danger"}>
+                                    <i className="bi bi-trash3">Törlés</i></NavLink>
+                            </div>
                         ))}
                     </div>
                 )
